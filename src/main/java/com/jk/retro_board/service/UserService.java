@@ -11,11 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
+/**
+ * @author Joginder Kumar
+ */
 @Service
 @Transactional(readOnly = true)
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -28,13 +32,11 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                Arrays.asList(new SimpleGrantedAuthority(user.getRole())));
-
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Arrays.asList(new SimpleGrantedAuthority(user.getRole())));
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public User create(User user){
+    public User create(User user) {
         return userRepository.save(user);
     }
 }

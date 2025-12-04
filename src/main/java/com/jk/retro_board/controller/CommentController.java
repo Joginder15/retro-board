@@ -3,11 +3,12 @@ package com.jk.retro_board.controller;
 import com.jk.retro_board.CommentType;
 import com.jk.retro_board.domain.Comment;
 import com.jk.retro_board.service.CommentService;
-import org.apache.commons.lang3.StringUtils;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.SimpleDateFormat;
@@ -21,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Controller
+@RequestMapping
 public class CommentController {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(CommentController.class);
