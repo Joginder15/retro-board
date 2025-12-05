@@ -39,7 +39,7 @@ public class CommentController {
         Map<CommentType, List<Comment>> groupedComments =
                 allComments.stream().collect(Collectors.groupingBy(Comment::getType));
 
-        model.addAttribute("startComments", groupedComments.get(CommentType.STAR));
+        model.addAttribute("starComments", groupedComments.get(CommentType.STAR));
         model.addAttribute("deltaComments", groupedComments.get(CommentType.DELTA));
         model.addAttribute("plusComments", groupedComments.get(CommentType.PLUS));
 
