@@ -69,13 +69,11 @@ public class SecurityConfig {
     public ApplicationRunner applicationRunner(PasswordEncoder passwordEncoder) {
         return args -> {
             userService.create(new User(null, "joginder",
-                    passwordEncoder.encode("password"),
+                    passwordEncoder.encode("jog@123"),
                     "ROLE_USER"));
             userService.create(new User(null, "aman",
-                    passwordEncoder.encode("password"),
+                    passwordEncoder.encode("ak@123"),
                     "ROLE_USER"));
         };
     }
-
-
 }

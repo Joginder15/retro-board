@@ -4,7 +4,7 @@ import com.jk.retro_board.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @author Shazin Sadakath
+ * @author Joginder Kumar
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 
